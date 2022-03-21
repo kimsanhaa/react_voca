@@ -6,9 +6,11 @@ function App() {
   return (
     <div className="App">
       <Hello/>
+      HI
       <Welcome/>
     </div>
   );
 }
 
 export default App;
+     
