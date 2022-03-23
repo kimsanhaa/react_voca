@@ -1,17 +1,22 @@
 import vocaData from "../db/data.json";
+import {useParams} from "react-router-dom";
+import Wrod from "./Word";
 
 export default function Day() {
-    const day= 2;
-    const worldList = vocaData.words.filter(word=>(word.day===day))
-    console.log(worldList)
-    return (<>
+    const day= useParams().day;
+    console.log(day)
+    const worldList = vocaData.words.filter(word=>word.day===Number(day))
+     console.log(worldList)
+
+   
+   
+    return (
+    <>
+    <h2>Day {day}</h2>
         <table>
             <tbody>
                 {worldList.map(word => (
-                    <tr key={word.id}>
-                        <td>{word.eng}</td>
-                        <td>{word.kor}</td>
-                    </tr>
+                    <Wrod word={word} key={word.id}/>
 
                 ))}
 

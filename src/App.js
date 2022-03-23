@@ -6,27 +6,28 @@ import SampleUseState from './component/SampleUseState';
 import Header from './component/Header';
 import DayList from './component/DayList';
 import Day from './component/Day';
-// function App() {
-//   const name = "sanha";
-//   return (
-//     <div className="App">
-//       {/* <Hello/> */}
-//       <h1>props : properties</h1>
-//       <SampleUseState age={10}/>
-//       <SampleUseState age={20}/>
-//       <SampleUseState age={30}/>
+import EmptyPage from './component/EmptyPage';
 
-//     </div>
-//   );
-// }
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
- function App() {
-   return<div className='App'>
-     <Header/>
-     <DayList/>
-     <Day/>
-   </div>
- }
+function App() {
+  return (
+    <div className='App'>
+      <Router>
+       <Header/>
+        <Routes>
+          <Route exact path="/" element={<DayList/>} />
+          <Route  path="/day/:day" element={<Day/>} />
+          <Route path="*"  element={<EmptyPage/>} />
+       </Routes>
+      </Router>
+      </div>
+    
+  )
+}
 export default App;
-     
